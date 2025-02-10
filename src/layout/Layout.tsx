@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar"
 
 interface Props {
     children : React.ReactNode
@@ -5,7 +6,9 @@ interface Props {
 
 function Layout({children}:Props) {
   return (
-    <>{children}</>
+    <>
+    <Navbar />
+    {children}</>
   )
 }
 

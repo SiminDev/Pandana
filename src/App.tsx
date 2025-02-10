@@ -1,8 +1,17 @@
+import { Route, Routes } from "react-router-dom";
+import Layout from "./layout/Layout";
+
 function App() {
   return (
-    <>
-      <h1 className="text-blue-600">Hello</h1>
-    </>
+    <div className="font-[Poppins]">
+      <Layout>
+        <Routes>
+          <Route />
+          <Route />
+          <Route />
+        </Routes>
+      </Layout>
+    </div>
   );
 }
 
