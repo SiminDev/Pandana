@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import logo from '../assets/pandana-logo.svg'
 
 function Navbar() {
   return (
-    <div className="bg-slate-100 px-8 py-4 grid grid-cols-3 items-center">
+    <div className=" px-10 py-4 grid grid-cols-3 items-center">
       <div className="">
-        <img src={logo} />
+        <img src='/assets/pandana-logo.svg' />
       </div>
       <nav className="flex">
         <ul className="flex gap-4">
