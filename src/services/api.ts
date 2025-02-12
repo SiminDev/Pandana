@@ -5,6 +5,11 @@ const client = axios.create({
 });
 
 export async function getLatestProducts() {
-  const { data } = await client("/products?limit=12");
+  const { data } = await client("/products/?limit=12");
+  return data;
+}
+
+export async function getAllProducts() {
+  const {data} = await client('/products')
   return data;
 }
