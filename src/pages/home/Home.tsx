@@ -3,15 +3,15 @@ import ProductItem from "../../components/productItem/ProductItem";
 import Slider from "../../components/Slider";
 import { getLatestProducts } from "../../services/api";
 import { Product } from "../../types/server";
+import { Link } from "react-router-dom";
 
 function Home() {
-
-  const [products, setProducts] = useState<Product[]>([])
+  const [products, setProducts] = useState<Product[]>([]);
   useEffect(() => {
-    getLatestProducts().then((res)=> {
-      setProducts(res)
-    })
-  })
+    getLatestProducts().then((res) => {
+      setProducts(res);
+    });
+  });
   return (
     <>
       <div className="flex px-10 py-10 bg-slate-100">
@@ -22,9 +22,10 @@ function Home() {
           Newest Arrivals
         </h2>
         <div className=" grid grid-cols-4 gap-6">
-          
           {products.map((item) => (
-            <ProductItem {...item} />
+            <Link to={`/product/${item.id}`}>
+              <ProductItem key={item.id} {...item} />
+            </Link>
           ))}
         </div>
       </section>
