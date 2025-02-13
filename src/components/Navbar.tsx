@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className=" px-10 py-4 grid grid-cols-3 items-center border-b border-b-slate-200">
+    <div className="px-10 py-4 grid grid-cols-3 items-center border-b border-b-slate-200">
       <div className="">
         <img src='/assets/pandana-logo.svg' />
       </div>
