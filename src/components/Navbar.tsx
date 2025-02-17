@@ -1,3 +1,4 @@
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -17,6 +18,9 @@ function Navbar() {
           
         </ul>
       </nav>
+      <div className="flex justify-end">
+        <Link to={'/cart'}><ShoppingBagIcon className="size-5" /></Link>
+      </div>
     </div>
   );
 }
