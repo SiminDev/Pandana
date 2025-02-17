@@ -18,7 +18,7 @@ function ProductItem({ title, image, price, rating }: Product) {
         <p className="text-gray-500 font-semibold">${price}</p>
       </div>
       <div className="mt-2.5">
-        <button className="bg-slate-800 text-white w-full py-2 rounded-lg">
+        <button className="bg-black text-white w-full py-2 rounded-lg">
           + Add To Cart
         </button>
       </div>

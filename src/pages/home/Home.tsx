@@ -18,10 +18,10 @@ function Home() {
         <Slider />
       </div>
       <section className="px-10 py-10">
-        <h2 className="text-2xl mb-8 font-light text-gray-600 tracking-wide">
+        <h2 className="text-2xl mb-12 font-light text-gray-600 tracking-wide">
           Newest Arrivals
         </h2>
-        <div className=" grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-4 gap-6">
           {products.map((item) => (
             <Link to={`/product/${item.id}`}>
               <ProductItem key={item.id} {...item} />
