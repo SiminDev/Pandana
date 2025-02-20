@@ -5,12 +5,13 @@ interface CartContextProvider {
 }
 
 interface CartContext {
-  cartItems : []
+  cartItems: [];
+  handleIncreaseQty : (id: number)=> void
 }
 
 interface CartItem {
-  id : number,
-  qty: number
+  id: number;
+  qty: number;
 }
 
 export const CartContext = createContext({} as CartContext);
@@ -21,7 +22,27 @@ export const useCartContext = () => {
 export function CartContextProvider({ children }: CartContextProvider) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  
+  const handleIncreaseQty = (id: number) => {
+    setCartItems((currentItems) => {
+      let selectedItem = currentItems.find((item) => item.id == id);
 
-  return <CartContext.Provider value={{cartItems}}>{children}</CartContext.Provider>;
+      if (selectedItem == null) {
+        return [currentItems, { id: id, qty: 1 }];
+      } else {
+        currentItems.map((item) => {
+          if (item.id == id) {
+            return { ...item, qty: item.qty + 1 };
+          } else {
+            return item;
+          }
+        });
+      }
+    });
+  };
+
+  return (
+    <CartContext.Provider value={{ cartItems, handleIncreaseQty }}>
+      {children}
+    </CartContext.Provider>
+  );
 }
