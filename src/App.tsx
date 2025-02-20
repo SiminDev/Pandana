@@ -4,19 +4,22 @@ import Home from "./pages/home/Home";
 import AllProducts from "./pages/allProducts/AllProducts";
 import Product from "./pages/product/Product";
 import Cart from "./pages/cart/Cart";
+import { CartContext } from "./context/cartContext";
 
 function App() {
   return (
     <div className="font-[Poppins]">
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/all-products" element={<AllProducts />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route />
-        </Routes>
-      </Layout>
+      <CartContext>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/all-products" element={<AllProducts />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route />
+          </Routes>
+        </Layout>
+      </CartContext>
     </div>
   );
 }
