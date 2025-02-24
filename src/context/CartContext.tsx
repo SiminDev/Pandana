@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface CartContextProvider {
@@ -12,10 +12,12 @@ interface CartItem {
 
 interface CartContext {
   cartItems: CartItem[];
-  handleIncreaseQty : (id: number)=> void;
-  handleDecreaseQty : (id: number)=> void
+  handleIncreaseQty: (id: number) => void;
+  handleDecreaseQty: (id: number) => void;
+  getProductQty: (id: number) => number;
+  handleRemoveProduct: (id: number) => void;
+  cartQty: number;
 }
-
 
 export const CartContext = createContext({} as CartContext);
 
@@ -24,17 +26,19 @@ export const useCartContext = () => {
 };
 
 export function CartContextProvider({ children }: CartContextProvider) {
-
-  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>('cartItems', []);
+  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
+    "cartItems",
+    []
+  );
 
   const handleIncreaseQty = (id: number) => {
-    setCartItems((currentItems: any[]) => {
+    setCartItems((currentItems) => {
       let selectedItem = currentItems.find((item) => item.id == id);
 
       if (selectedItem == null) {
-        return [currentItems, { id: id, qty: 1 }];
+        return [...currentItems, { id: id, qty: 1 }];
       } else {
-        currentItems.map((item) => {
+        return currentItems.map((item) => {
           if (item.id == id) {
             return { ...item, qty: item.qty + 1 };
           } else {
@@ -46,25 +50,48 @@ export function CartContextProvider({ children }: CartContextProvider) {
   };
 
   const handleDecreaseQty = (id: number) => {
-    setCartItems((currentItems: any[]) => {
-      let selectedItem = currentItems.find((item) => item.id == id)
+    setCartItems((currentItems) => {
+      let selectedItem = currentItems.find((item) => item.id == id);
 
-      if ( selectedItem?.qty === 1) {
-        return currentItems.filter((item) => item.id !== id)
+      if (selectedItem?.qty === 1) {
+        return currentItems.filter((item) => item.id !== id);
       } else {
         return currentItems.map((item) => {
-          if ( item.id == id) {
-            return {...item, qty: item.qty - 1 }
+          if (item.id == id) {
+            return { ...item, qty: item.qty - 1 };
           } else {
-            return item
+            return item;
           }
-        })
+        });
       }
-    })
-  }
+    });
+  };
+
+  const getProductQty = (id: number) => {
+    return cartItems.find((item) => item.id == id)?.qty || 0;
+  };
+
+  const handleRemoveProduct = (id: number) => {
+    setCartItems((currentItems) =>
+      currentItems.filter((item) => item.id !== id)
+    );
+  };
+
+  const cartQty = cartItems.reduce((totalQty, item) => {
+    return (totalQty += item.qty);
+  }, 0);
 
   return (
-    <CartContext.Provider value={{ cartItems, handleIncreaseQty, handleDecreaseQty }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        handleIncreaseQty,
+        handleDecreaseQty,
+        handleRemoveProduct,
+        cartQty,
+        getProductQty,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

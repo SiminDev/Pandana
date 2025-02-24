@@ -3,7 +3,6 @@ import ProductItem from "../../components/productItem/ProductItem";
 import Slider from "../../components/Slider";
 import { getLatestProducts } from "../../services/api";
 import { Product } from "../../types/server";
-import { Link } from "react-router-dom";
 
 function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -23,9 +22,7 @@ function Home() {
         </h2>
         <div className="grid grid-cols-4 gap-6">
           {products.map((item) => (
-            <Link to={`/product/${item.id}`}>
               <ProductItem key={item.id} {...item} />
-            </Link>
           ))}
         </div>
       </section>

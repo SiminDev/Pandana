@@ -4,12 +4,12 @@ import Home from "./pages/home/Home";
 import AllProducts from "./pages/allProducts/AllProducts";
 import Product from "./pages/product/Product";
 import Cart from "./pages/cart/Cart";
-import { CartContext } from "./context/cartContext";
+import { CartContextProvider } from "./context/cartContext";
 
 function App() {
   return (
     <div className="font-[Poppins]">
-      <CartContext>
+      <CartContextProvider>
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -19,7 +19,7 @@ function App() {
             <Route />
           </Routes>
         </Layout>
-      </CartContext>
+      </CartContextProvider>
     </div>
   );
 }
