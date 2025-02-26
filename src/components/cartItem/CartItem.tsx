@@ -22,8 +22,8 @@ export default function CartItem({ id, qty }: CartItem) {
   }, []);
 
   return (
-    <div className="grid grid-cols-6 justify-items-center items-center border-b py-4 border-gray-300">
-      <img className="rounded-2xl h-52" src={product?.image} />
+    <div className="grid grid-cols-6 justify-items-center items-center rounded-2xl py-4 border-gray-300 bg-slate-100">
+      <img className="rounded-2xl h-40" src={product?.image} />
       <p className="col-span-2 text-gray-800 font-medium">{product?.title}</p>
       <div className="flex gap-2.5">
         <button

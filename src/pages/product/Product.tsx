@@ -19,7 +19,7 @@ function Product() {
     });
   }, []);
   return (
-    <div className="bg-slate-100 px-10 py-20">
+    <div className="bg-slate-50 px-15 py-20">
       <div className="grid grid-cols-2 gap-10">
         <div className="p-10 rounded-2xl bg-white flex justify-center align-middle min-h-120">
           <img className="w-2/3 object-contain" src={product?.image} />

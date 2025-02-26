@@ -5,7 +5,7 @@ import { useCartContext } from "../context/cartContext";
 function Navbar() {
   const { cartQty } = useCartContext();
   return (
-    <div className="px-10 py-4 grid grid-cols-3 items-center border-b border-b-slate-200">
+    <div className="px-15 py-5 grid grid-cols-3 items-center border-b border-b-slate-200">
       <div className="">
         <img src="/assets/logo-black.svg" />
       </div>

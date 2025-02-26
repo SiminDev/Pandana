@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="bg-gray-100 px-10 py-15">
+    <footer className="bg-slate-100 px-15 py-15">
       <div className="grid grid-cols-6 gap-3">
         <div className="col-span-3 flex flex-col">
           <img src="/assets/logo-black.svg" className="w-40 mb-4" />

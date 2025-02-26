@@ -13,10 +13,10 @@ function Home() {
   });
   return (
     <>
-      <div className="flex px-10 py-10 bg-slate-100">
+      <div className="flex px-15 py-10 bg-slate-100">
         <Slider />
       </div>
-      <section className="px-10 py-10">
+      <section className="px-15 py-20">
         <h2 className="text-2xl mb-12 font-light text-gray-600 tracking-wide">
           Newest Arrivals
         </h2>
