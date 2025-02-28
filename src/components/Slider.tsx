@@ -28,15 +28,6 @@ function Slider() {
         <SwiperSlide>
           <img src="/assets/slide3.png" />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src="/assets/slide4.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/assets/slide5.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/assets/slide6.png" />
-        </SwiperSlide>
       </Swiper>
     </>
   );

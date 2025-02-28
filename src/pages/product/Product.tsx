@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProduct } from "../../services/api";
 import { Product as IProduct } from "../../types/server";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { StarIcon } from "@heroicons/react/16/solid";
 import { useCartContext } from "../../context/cartContext";
 
@@ -19,9 +19,9 @@ function Product() {
     });
   }, []);
   return (
-    <div className="bg-slate-50 px-15 py-20">
+    <div className="px-15 py-20">
       <div className="grid grid-cols-2 gap-10">
-        <div className="p-10 rounded-2xl bg-white flex justify-center align-middle min-h-120">
+        <div className="p-10 rounded-2xl bg-slate-100 flex justify-center align-middle min-h-120">
           <img className="w-2/3 object-contain" src={product?.image} />
         </div>
         <div className="p-10 rounded-2xl bg-white flex flex-col justify-between">
@@ -42,29 +42,39 @@ function Product() {
               ${product?.price}
             </div>
           </div>
-          <div className="mt-10">
+          <div className="mt-10 w-1/4">
             {getProductQty(parseInt(params.id as string)) == 0 ? (
               <button
-                className="bg-green-700 text-white w-full py-2 rounded-lg"
-                onClick={() => handleIncreaseQty(parseInt(params.id as string))}
+                className="bg-green-700 text-white w-full py-2 rounded-lg cursor-pointer"
+                onClick={() =>
+                  handleIncreaseQty(
+                    parseInt(params.id as string),
+                    parseFloat(product.price)
+                  )
+                }
               >
                 + Add To Cart
               </button>
             ) : (
               <div className="flex gap-2.5 justify-center">
                 <button
-                  className="border border-gray-300 w-7 h-7 rounded-lg"
+                  className="border border-gray-300 w-7 h-7 rounded-lg cursor-pointer"
                   onClick={() =>
                     handleDecreaseQty(parseInt(params.id as string))
                   }
                 >
                   -
                 </button>
-                <span>{getProductQty(parseInt(params.id as string))}</span>
+                <span className="w-6 text-center">
+                  {getProductQty(parseInt(params.id as string))}
+                </span>
                 <button
-                  className="border border-gray-300 w-7 h-7 rounded-lg"
+                  className="border border-gray-300 w-7 h-7 rounded-lg cursor-pointer"
                   onClick={() =>
-                    handleIncreaseQty(parseInt(params.id as string))
+                    handleIncreaseQty(
+                      parseInt(params.id as string),
+                      parseFloat(product.price)
+                    )
                   }
                 >
                   +

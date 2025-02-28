@@ -2,10 +2,10 @@ import { useEffect, useState } from "react"
 
 export function useLocalStorage<T>(key: string, initialValue: T)  {
     const [value, setValue] = useState<T>(() => {
-        let localCart = localStorage.getItem("cartItems");
+        let storedValue = localStorage.getItem(key);
 
-        if (localCart != null) {
-            return JSON.parse(localCart)
+        if (storedValue != null) {
+            return JSON.parse(storedValue)
         } else {
             return initialValue;
         }

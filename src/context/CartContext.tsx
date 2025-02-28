@@ -8,15 +8,17 @@ interface CartContextProvider {
 interface CartItem {
   id: number;
   qty: number;
+  price: number;
 }
 
 interface CartContext {
   cartItems: CartItem[];
-  handleIncreaseQty: (id: number) => void;
+  handleIncreaseQty: (id: number, price: number) => void;
   handleDecreaseQty: (id: number) => void;
   getProductQty: (id: number) => number;
   handleRemoveProduct: (id: number) => void;
   cartQty: number;
+  cartTotalPrice: number;
 }
 
 export const CartContext = createContext({} as CartContext);
@@ -31,12 +33,12 @@ export function CartContextProvider({ children }: CartContextProvider) {
     []
   );
 
-  const handleIncreaseQty = (id: number) => {
+  const handleIncreaseQty = (id: number, price: number) => {
     setCartItems((currentItems) => {
       let selectedItem = currentItems.find((item) => item.id == id);
 
       if (selectedItem == null) {
-        return [...currentItems, { id: id, qty: 1 }];
+        return [...currentItems, { id: id, qty: 1, price: price }];
       } else {
         return currentItems.map((item) => {
           if (item.id == id) {
@@ -81,6 +83,11 @@ export function CartContextProvider({ children }: CartContextProvider) {
     return (totalQty += item.qty);
   }, 0);
 
+  const cartTotalPrice = cartItems.reduce((totalPrice, item) => {
+    console.log(item.price, item.qty)
+    return (totalPrice + (item.price * item.qty));
+  }, 0);
+
   return (
     <CartContext.Provider
       value={{
@@ -90,6 +97,7 @@ export function CartContextProvider({ children }: CartContextProvider) {
         handleRemoveProduct,
         cartQty,
         getProductQty,
+        cartTotalPrice,
       }}
     >
       {children}

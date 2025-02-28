@@ -13,7 +13,7 @@ function AllProducts() {
   });
   return (
     <div className="px-15 py-20">
-      <div className=" grid grid-cols-4 gap-6">
+      <div className=" grid grid-cols-4 gap-10">
         {products.map((item) => (
           <Link key={item.id} to={`/product/${item.id}`}>
             <ProductItem {...item} />

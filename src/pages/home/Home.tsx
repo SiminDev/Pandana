@@ -20,7 +20,7 @@ function Home() {
         <h2 className="text-2xl mb-12 font-light text-gray-600 tracking-wide">
           Newest Arrivals
         </h2>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-4 gap-10">
           {products.map((item) => (
               <ProductItem key={item.id} {...item} />
           ))}
