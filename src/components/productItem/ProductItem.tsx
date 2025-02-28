@@ -27,7 +27,7 @@ function ProductItem({ title, image, price, rating, id }: Product) {
       <div className="mt-2.5">
         {getProductQty(id) == 0 ? (
           <button
-            className="bg-green-700 text-white w-full py-2 rounded-lg"
+            className="bg-purple-800 text-white w-full py-2 rounded-lg"
             onClick={() => handleIncreaseQty(id)}
           >
             + Add To Cart
