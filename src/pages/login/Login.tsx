@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLoginContext } from "../../context/LoginContext";
 
 function Login() {
   const [user, setUser] = useState({
@@ -10,6 +11,9 @@ function Login() {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
+
+  const { handleLogin } = useLoginContext();
+
   return (
     <div className="flex justify-center py-20">
       <div className="bg-slate-100 rounded-2xl w-2/5 flex flex-col justify-center items-center gap-3.5 p-10">
@@ -30,7 +34,10 @@ function Login() {
           onChange={handleChange}
         ></input>
 
-        <button className="w-3/4 rounded-lg bg-green-700 text-white py-2 cursor-pointer mt-5">
+        <button
+          className="w-3/4 rounded-lg bg-green-700 text-white py-2 cursor-pointer mt-5"
+          onClick={() => handleLogin(user.username, user.password)}
+        >
           Login
         </button>
       </div>

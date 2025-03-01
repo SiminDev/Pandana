@@ -84,7 +84,6 @@ export function CartContextProvider({ children }: CartContextProvider) {
   }, 0);
 
   const cartTotalPrice = cartItems.reduce((totalPrice, item) => {
-    console.log(item.price, item.qty)
     return (totalPrice + (item.price * item.qty));
   }, 0);
 
