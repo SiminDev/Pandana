@@ -4,7 +4,8 @@ import Home from "./pages/home/Home";
 import AllProducts from "./pages/allProducts/AllProducts";
 import Product from "./pages/product/Product";
 import Cart from "./pages/cart/Cart";
-import { CartContextProvider } from "./context/cartContext";
+import { CartContextProvider } from "./context/CartContext";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/all-products" element={<AllProducts />} />
             <Route path="/product/:id" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<Login />} />
             <Route />
           </Routes>
         </Layout>
