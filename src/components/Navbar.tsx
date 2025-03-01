@@ -1,6 +1,6 @@
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { useCartContext } from "../context/cartContext";
+import { useCartContext } from "../context/CartContext";
 
 function Navbar() {
   const { cartQty } = useCartContext();

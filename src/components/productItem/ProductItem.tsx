@@ -1,6 +1,5 @@
 import { StarIcon } from "@heroicons/react/16/solid";
 import { Product } from "../../types/server";
-import { useCartContext } from "../../context/cartContext";
 import { Link } from "react-router-dom";
 
 function ProductItem({ title, image, price, rating, id }: Product) {

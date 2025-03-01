@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getProduct } from "../../services/api";
 import { Product as IProduct } from "../../types/server";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { StarIcon } from "@heroicons/react/16/solid";
-import { useCartContext } from "../../context/cartContext";
+import { useCartContext } from "../../context/CartContext";
 
 function Product() {
   const params = useParams<{ id: string }>();
@@ -21,7 +21,7 @@ function Product() {
   return (
     <div className="px-15 py-20">
       <div className="grid grid-cols-2 gap-10">
-        <div className="p-10 rounded-2xl bg-slate-100 flex justify-center align-middle min-h-120">
+        <div className="p-10 rounded-2xl bg-slate-100 flex justify-center align-middle min-h-120 ">
           <img className="w-2/3 object-contain" src={product?.image} />
         </div>
         <div className="p-10 rounded-2xl bg-white flex flex-col justify-between">

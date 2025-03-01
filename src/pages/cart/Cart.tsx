@@ -1,5 +1,5 @@
 import CartItem from "../../components/cartItem/CartItem";
-import { useCartContext } from "../../context/cartContext";
+import { useCartContext } from "../../context/CartContext";
 
 export default function Cart() {
   const { cartItems, cartTotalPrice } = useCartContext();
