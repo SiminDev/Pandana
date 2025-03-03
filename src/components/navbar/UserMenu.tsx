@@ -1,29 +1,8 @@
-import { Ref, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLoginContext } from "../../context/LoginContext";
 
-interface UserMenuProps {
-  openMenu: boolean;
-  setOpenMenu: (open: boolean) => void;
-  menuRef: Ref;
-}
-
-function UserMenu({ openMenu, setOpenMenu, menuRef }: UserMenuProps) {
+function UserMenu() {
   const { handleLogout } = useLoginContext();
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setOpenMenu(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [openMenu, setOpenMenu]);
 
   return (
     <div className="absolute w-26 z-5 bg-white border border-gray-200 shadow-xl rounded-lg -right-10 top-7 overflow-hidden">

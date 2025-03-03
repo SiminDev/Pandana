@@ -1,28 +1,26 @@
 import { useRef, useState } from "react";
 import UserMenu from "./UserMenu";
 import { UserIcon } from "@heroicons/react/24/outline";
-
+import useClickOutside from "../../hooks/useClickOutside";
 
 function ProfileButton() {
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef();
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
-  const [openMenu, setOpenMenu] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+  useClickOutside(menuRef, closeMenu);
 
   return (
     <div
       className="cursor-pointer"
-      onClick={() => setOpenMenu((prev) => !prev)}
+      onClick={() => setIsOpen((prev) => !prev)}
       ref={menuRef}
     >
       <UserIcon className="size-5" />
-      {openMenu && (
-        <UserMenu
-          openMenu={openMenu}
-          setOpenMenu={setOpenMenu}
-          menuRef={menuRef}
-        />
-      )}
+      {isOpen && <UserMenu />}
     </div>
   );
 }

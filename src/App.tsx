@@ -8,9 +8,9 @@ import { CartContextProvider } from "./context/CartContext";
 import Login from "./pages/login/Login";
 import { useLoginContext } from "./context/LoginContext";
 import Profile from "./pages/profile/Profile";
+import PrivateRoute from "./components/privateRoute/PrivateRoute";
 
 function App() {
-
   const { isLogin } = useLoginContext();
 
   return (
@@ -22,8 +22,13 @@ function App() {
             <Route path="/all-products" element={<AllProducts />} />
             <Route path="/product/:id" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/login" element={isLogin ? <Navigate to='/' />:<Login />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/profile" element={<Profile />} />
+            </Route>
+            <Route
+              path="/login"
+              element={isLogin ? <Navigate to="/" /> : <Login />}
+            />
             <Route />
           </Routes>
         </Layout>
