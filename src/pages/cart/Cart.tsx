@@ -3,7 +3,6 @@ import { useCartContext } from "../../context/CartContext";
 
 export default function Cart() {
   const { cartItems, cartTotalPrice } = useCartContext();
-  console.log("cart", cartItems);
   return (
     <div className="px-15 py-20 min-h-105">
       <h2 className="text-lg mb-12 font-medium text-gray-600">Shopping Cart</h2>
