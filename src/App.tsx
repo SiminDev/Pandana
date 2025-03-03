@@ -7,6 +7,7 @@ import Cart from "./pages/cart/Cart";
 import { CartContextProvider } from "./context/CartContext";
 import Login from "./pages/login/Login";
 import { useLoginContext } from "./context/LoginContext";
+import Profile from "./pages/profile/Profile";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/all-products" element={<AllProducts />} />
             <Route path="/product/:id" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={isLogin ? <Navigate to='/' />:<Login />} />
             <Route />
           </Routes>
