@@ -1,5 +1,6 @@
-import { Ref, useEffect, useRef } from "react";
+import { Ref, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useLoginContext } from "../../context/LoginContext";
 
 interface UserMenuProps {
   openMenu: boolean;
@@ -8,6 +9,8 @@ interface UserMenuProps {
 }
 
 function UserMenu({ openMenu, setOpenMenu, menuRef }: UserMenuProps) {
+  const { handleLogout } = useLoginContext();
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -30,11 +33,13 @@ function UserMenu({ openMenu, setOpenMenu, menuRef }: UserMenuProps) {
             Profile
           </li>
         </Link>
-        <Link to={"/"}>
-          <li className="px-3 py-2 text-gray-600 text-sm hover:bg-slate-100 duration-150 transition-all">
-            Log out
-          </li>
-        </Link>
+
+        <li
+          className="px-3 py-2 text-gray-600 text-sm hover:bg-slate-100 duration-150 transition-all"
+          onClick={handleLogout}
+        >
+          Log out
+        </li>
       </ul>
     </div>
   );

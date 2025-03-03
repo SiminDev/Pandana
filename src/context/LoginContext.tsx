@@ -34,7 +34,7 @@ export function LoginContextProvider({ children }: LoginContextProvider) {
 
   const handleLogout = () => {
     setIsLogin(false);
-    navigate("/login");
+    navigate("/");
     localStorage.removeItem("token");
   };
 
