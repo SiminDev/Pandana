@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getAllProducts } from "../../services/api";
 import { Product } from "../../types/server";
 import ProductItem from "../../components/productItem/ProductItem";
-import { Link } from "react-router-dom";
 
 function AllProducts() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -12,12 +11,10 @@ function AllProducts() {
     });
   });
   return (
-    <div className="px-15 py-20">
-      <div className=" grid grid-cols-4 gap-10">
+    <div className="px-5 py-10 lg:px-15 lg:py-20">
+      <div className="flex flex-wrap gap-3 md:grid md:grid-cols-3 lg:grid-cols-4 md:gap-10">
         {products.map((item) => (
-          <Link key={item.id} to={`/product/${item.id}`}>
-            <ProductItem {...item} />
-          </Link>
+          <ProductItem key={item.id} {...item} />
         ))}
       </div>
     </div>
