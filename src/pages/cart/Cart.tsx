@@ -4,8 +4,8 @@ import { useCartContext } from "../../context/CartContext";
 export default function Cart() {
   const { cartItems, cartTotalPrice } = useCartContext();
   return (
-    <div className="px-15 py-20 min-h-105">
-      <h2 className="text-lg mb-12 font-medium text-gray-600">Shopping Cart</h2>
+    <div className="px-5 py-5 lg:px-15 lg:py-20 lg:min-h-105">
+      <h2 className="text-md lg:text-lg mb-5 lg:mb-12 font-medium text-gray-600">Shopping Cart</h2>
       {cartItems.length ? (
         <div className="flex flex-col gap-2.5">
           {cartItems.map((item) => (
