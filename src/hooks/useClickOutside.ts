@@ -1,7 +1,7 @@
-import {useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const useClickOutside = (handler: () => void) => {
-  let domNode = useRef<HTMLElement | null>(null);
+  let domNode = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const listener = (event: MouseEvent | TouchEvent) => {
