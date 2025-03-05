@@ -5,7 +5,7 @@ import MobileMenu from "./MobileMenu";
 
 function Navbar() {
   return (
-    <div className="px-5 py-3 lg:px-15 lg:py-5 grid grid-cols-3 items-center border-b border-b-slate-200">
+    <div className="px-5 py-3 md:py-5 lg:px-15 grid grid-cols-3 items-center border-b border-b-slate-200">
       <div className="md:hidden">
         <MobileMenu />
       </div>

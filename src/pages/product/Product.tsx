@@ -25,7 +25,7 @@ function Product() {
 
   return (
     <div className="px-5 py-5 lg:px-15 lg:py-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-10">
         <div className="p-5 md:p-10 rounded-2xl bg-slate-100 flex justify-center align-middle lg:min-h-120 ">
           <img className="w-full md:w-2/3 object-contain" src={product?.image} />
         </div>
@@ -47,7 +47,7 @@ function Product() {
               ${product?.price}
             </div>
           </div>
-          <div className="mt-10 w-full lg:w-1/4">
+          <div className="mt-10 w-full md:w-1/2 lg:w-1/4">
             {getProductQty(parseInt(params.id as string)) == 0 ? (
               <button
                 className="bg-green-700 text-white w-full py-2 rounded-lg cursor-pointer"

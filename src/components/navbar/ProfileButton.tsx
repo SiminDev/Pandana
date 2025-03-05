@@ -1,17 +1,11 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import UserMenu from "./UserMenu";
 import { UserIcon } from "@heroicons/react/24/outline";
 import useClickOutside from "../../hooks/useClickOutside";
 
 function ProfileButton() {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef();
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
-
-  useClickOutside(menuRef, closeMenu);
+  let menuRef = useClickOutside(() => setIsOpen(false));
 
   return (
     <div
