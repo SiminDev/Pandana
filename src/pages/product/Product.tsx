@@ -4,14 +4,17 @@ import { Product as IProduct } from "../../types/server";
 import { useParams } from "react-router-dom";
 import { StarIcon } from "@heroicons/react/16/solid";
 import { useCartContext } from "../../context/CartContext";
+import IncreaseDecreaseButton from "../../components/IncreaseDecreaseButton";
 
 function Product() {
   const params = useParams<{ id: string }>();
 
   const [product, setProduct] = useState<IProduct>();
 
-  const { getProductQty, handleDecreaseQty, handleIncreaseQty } =
+  const { getProductQty, handleIncreaseQty } =
     useCartContext();
+
+  const qty = getProductQty(parseInt(params.id as string));
 
   useEffect(() => {
     getProduct(params.id as string).then((res) => {
@@ -49,37 +52,18 @@ function Product() {
                 onClick={() =>
                   handleIncreaseQty(
                     parseInt(params.id as string),
-                    parseFloat(product.price)
+                    200
                   )
                 }
               >
                 + Add To Cart
               </button>
             ) : (
-              <div className="flex gap-2.5 justify-center">
-                <button
-                  className="border border-gray-300 w-7 h-7 rounded-lg cursor-pointer"
-                  onClick={() =>
-                    handleDecreaseQty(parseInt(params.id as string))
-                  }
-                >
-                  -
-                </button>
-                <span className="w-6 text-center">
-                  {getProductQty(parseInt(params.id as string))}
-                </span>
-                <button
-                  className="border border-gray-300 w-7 h-7 rounded-lg cursor-pointer"
-                  onClick={() =>
-                    handleIncreaseQty(
-                      parseInt(params.id as string),
-                      parseFloat(product.price)
-                    )
-                  }
-                >
-                  +
-                </button>
-              </div>
+              <IncreaseDecreaseButton
+                id={parseInt(params.id as string)}
+                qty={qty}
+                price={200}
+              />
             )}
           </div>
         </div>
