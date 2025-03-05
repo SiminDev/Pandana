@@ -21,15 +21,17 @@ function Product() {
       setProduct(res);
     });
   }, []);
+
+
   return (
-    <div className="px-15 py-20">
-      <div className="grid grid-cols-2 gap-10">
-        <div className="p-10 rounded-2xl bg-slate-100 flex justify-center align-middle min-h-120 ">
-          <img className="w-2/3 object-contain" src={product?.image} />
+    <div className="px-5 py-5 lg:px-15 lg:py-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-10">
+        <div className="p-5 md:p-10 rounded-2xl bg-slate-100 flex justify-center align-middle lg:min-h-120 ">
+          <img className="w-full md:w-2/3 object-contain" src={product?.image} />
         </div>
-        <div className="p-10 rounded-2xl bg-white flex flex-col justify-between">
+        <div className="p-5 md:p-10 rounded-2xl bg-white flex flex-col justify-between">
           <div className="">
-            <h3 className="text-2xl font-semibold text-slate-600 mb-10">
+            <h3 className="text-xl md:text-2xl font-semibold text-slate-600 mb-5 md:mb-10">
               {product?.title}
             </h3>
             <p className="text-gray-600 text-base/7 mb-4">
@@ -41,11 +43,11 @@ function Product() {
                 {product?.rating.rate}
               </span>
             </div>
-            <div className="text-2xl text-slate-600 font-semibold">
+            <div className="text-xl md:text-2xl text-slate-600 font-semibold">
               ${product?.price}
             </div>
           </div>
-          <div className="mt-10 w-1/4">
+          <div className="mt-10 w-full lg:w-1/4">
             {getProductQty(parseInt(params.id as string)) == 0 ? (
               <button
                 className="bg-green-700 text-white w-full py-2 rounded-lg cursor-pointer"
