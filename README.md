@@ -19,23 +19,23 @@ This is a **mini e-commerce project** built with **React** and **TypeScript** as
 
    ```
    git clone https://github.com/simindev/pandana.git
-   cd pandana
+      cd pandana
    ```
 
 2. Install dependencies:
 
-```
-npm install
-```
+   ```
+   npm install
+   ```
 
 3.Start the development server:
 
-```
-npm run dev
-```
+   ```
+   npm run dev
+   ```
 
 ## Screenshots
 
 Here are some screenshots of the project:
 
-![Screenshot](https://raw.githubusercontent.com/SiminDev/Pandana/main/public/assets/pandana-shots.jpg)
+![Screenshot](/assets/pandana-shots.jpg)
