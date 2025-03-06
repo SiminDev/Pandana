@@ -17,7 +17,7 @@ This is a **mini e-commerce project** built with **React** and **TypeScript** as
 
 1. Clone the repository:
 
-   ```bash
+   ```
    git clone https://github.com/simindev/pandana.git
    cd pandana
    ```
@@ -38,4 +38,4 @@ npm run dev
 
 Here are some screenshots of the project:
 
-![Combined Screenshot](assets/pandana-shots.jpg)
+![Screenshot](https://raw.githubusercontent.com/SiminDev/Pandana/main/public/assets/pandana-shots.jpg)
