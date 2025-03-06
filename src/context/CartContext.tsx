@@ -1,24 +1,25 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { getProduct } from "../services/api";
 
-interface CartContextProvider {
+interface CartContextProps {
   children: React.ReactNode;
 }
 
 interface CartItem {
   id: number;
   qty: number;
-  price: number;
+  price: number | null;
 }
 
 interface CartContext {
   cartItems: CartItem[];
-  handleIncreaseQty: (id: number, price: number) => void;
+  handleIncreaseQty: (id: number) => void;
   handleDecreaseQty: (id: number) => void;
   getProductQty: (id: number) => number;
-  handleRemoveProduct: (id: number) => void;
+  removeFromCart: (id: number) => void;
+  cartTotalPrice: () => number;
   cartQty: number;
-  cartTotalPrice: number;
 }
 
 export const CartContext = createContext({} as CartContext);
@@ -27,18 +28,38 @@ export const useCartContext = () => {
   return useContext(CartContext);
 };
 
-export function CartContextProvider({ children }: CartContextProvider) {
+export function CartContextProvider({ children }: CartContextProps) {
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
     "cartItems",
     []
   );
 
-  const handleIncreaseQty = (id: number, price: number) => {
+  const cartQty = cartItems.reduce((totalQty, item) => {
+    return (totalQty += item.qty);
+  }, 0);
+
+  const getProductQty = (id: number) => {
+    return cartItems.find((item) => item.id === id)?.qty || 0;
+  };
+
+  const cartTotalPrice = () => {
+    return cartItems.reduce((total, item) => {
+      if (item.price !== null) {
+        return total + item.price * item.qty;
+      }
+      return total;
+    }, 0).toFixed(2);
+  };
+
+  const handleIncreaseQty = (id: number) => {
     setCartItems((currentItems) => {
       let selectedItem = currentItems.find((item) => item.id == id);
 
       if (selectedItem == null) {
-        return [...currentItems, { id: id, qty: 1, price: price }];
+        getProduct(id).then((res) => {
+          setCartItems([...currentItems, { id: id, qty: 1, price: res.price }]);
+        });
+        return currentItems;
       } else {
         return currentItems.map((item) => {
           if (item.id == id) {
@@ -69,23 +90,11 @@ export function CartContextProvider({ children }: CartContextProvider) {
     });
   };
 
-  const getProductQty = (id: number) => {
-    return cartItems.find((item) => item.id == id)?.qty || 0;
-  };
-
-  const handleRemoveProduct = (id: number) => {
+  const removeFromCart = (id: number) => {
     setCartItems((currentItems) =>
       currentItems.filter((item) => item.id !== id)
     );
   };
-
-  const cartQty = cartItems.reduce((totalQty, item) => {
-    return (totalQty += item.qty);
-  }, 0);
-
-  const cartTotalPrice = cartItems.reduce((totalPrice, item) => {
-    return (totalPrice + (item.price * item.qty));
-  }, 0);
 
   return (
     <CartContext.Provider
@@ -93,7 +102,7 @@ export function CartContextProvider({ children }: CartContextProvider) {
         cartItems,
         handleIncreaseQty,
         handleDecreaseQty,
-        handleRemoveProduct,
+        removeFromCart,
         cartQty,
         getProductQty,
         cartTotalPrice,
