@@ -2,18 +2,19 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useClickOutside from "../../hooks/useClickOutside";
+import { useLoginContext } from "../../context/LoginContext";
 
 const navItem = [
   { name: "Home", path: "/" },
   { name: "All Products", path: "/all-products" },
   { name: "Cart", path: "/cart" },
   { name: "Profile", path: "/profile" },
-  { name: "Logout", path: "" },
 ];
 
 function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   let menuRef = useClickOutside(() => setIsOpen(false));
+  const { handleLogout } = useLoginContext();
 
   return (
     <div ref={menuRef}>
@@ -36,6 +37,12 @@ function MobileMenu() {
                 <Link to={item.path}>{item.name}</Link>
               </li>
             ))}
+            <li
+              className="px-6 py-4 border-b border-gray-100 text-sm hover:text-slate-600 cursor-pointer transition duration-100"
+              onClick={handleLogout}
+            >
+              Logout
+            </li>
           </ul>
         </nav>
       )}
