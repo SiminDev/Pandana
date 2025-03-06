@@ -1,4 +1,4 @@
-# 🐼 Pandana - React & TypeScript E-commerce Mini Project
+# Pandana - React & TypeScript E-commerce Mini Project
 
 This is a **mini e-commerce project** built with **React** and **TypeScript** as a portfolio sample.
 
