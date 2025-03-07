@@ -1,7 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
-
 import "swiper/swiper-bundle.css";
+import slide1 from "../../public/assets/slide1.png";
+import slide2 from "../../public/assets/slide1.png";
+import slide3 from "../../public/assets/slide1.png";
 
 function Slider() {
   return (
@@ -18,13 +20,13 @@ function Slider() {
         className="mySwiper rounded-2xl"
       >
         <SwiperSlide>
-          <img src="/assets/slide1.png" />
+          <img src={slide1} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/assets/slide2.png" />
+          <img src={slide2} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/assets/slide3.png" />
+          <img src={slide3} />
         </SwiperSlide>
       </Swiper>
     </>

@@ -2,6 +2,7 @@ import Navigation from "./Navigation";
 import CartButton from "./CartButton";
 import UserStatus from "./UserStatus";
 import MobileMenu from "./MobileMenu";
+import logo from "../../../public/assets/logo-black.svg";
 
 function Navbar() {
   return (
@@ -9,7 +10,7 @@ function Navbar() {
       <div className="md:hidden">
         <MobileMenu />
       </div>
-      <img src="/assets/logo-black.svg" className="w-24 lg:w-36" />
+      <img src={logo} className="w-24 lg:w-36" />
       <div className="hidden md:flex">
         <Navigation />
       </div>
