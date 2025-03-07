@@ -10,7 +10,8 @@ function Home() {
     getLatestProducts().then((res) => {
       setProducts(res);
     });
-  });
+  },[]);
+  
   return (
     <>
       <div className="flex px-5 py-5 lg:px-15 lg:py-10 bg-slate-100">
