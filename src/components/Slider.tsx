@@ -2,8 +2,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import slide1 from "../../public/assets/slide1.png";
-import slide2 from "../../public/assets/slide1.png";
-import slide3 from "../../public/assets/slide1.png";
+import slide2 from "../../public/assets/slide2.png";
+import slide3 from "../../public/assets/slide3.png";
 
 function Slider() {
   return (
