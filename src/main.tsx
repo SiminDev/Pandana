@@ -7,7 +7,7 @@ import { LoginContextProvider } from "./context/LoginContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={"/Pandana"}>
       <LoginContextProvider>
         <App />
       </LoginContextProvider>
