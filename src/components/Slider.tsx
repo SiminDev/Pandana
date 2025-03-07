@@ -18,13 +18,13 @@ function Slider() {
         className="mySwiper rounded-2xl"
       >
         <SwiperSlide>
-          <img src="/assets/slide1.png" />
+          <img src="../../public/assets/slide1.png" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/assets/slide2.png" />
+          <img src="../../public/assets/slide2.png" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/assets/slide3.png" />
+          <img src="../../public/assets/slide3.png" />
         </SwiperSlide>
       </Swiper>
     </>

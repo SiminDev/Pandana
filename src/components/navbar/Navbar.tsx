@@ -9,7 +9,7 @@ function Navbar() {
       <div className="md:hidden">
         <MobileMenu />
       </div>
-      <img src="/assets/logo-black.svg" className="w-24 lg:w-36" />
+      <img src="../../public/assets/logo-black.svg" className="w-24 lg:w-36" />
       <div className="hidden md:flex">
         <Navigation />
       </div>
