@@ -30,9 +30,9 @@ This is a **mini e-commerce project** built with **React** and **TypeScript** as
 
 3.Start the development server:
 
-   ```
-   npm run dev
-   ```
+```
+npm run dev
+```
 
 ## Screenshots
 

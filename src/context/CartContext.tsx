@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { getProduct } from "../services/api";
 
@@ -43,12 +43,16 @@ export function CartContextProvider({ children }: CartContextProps) {
   };
 
   const cartTotalPrice = () => {
-    return cartItems.reduce((total, item) => {
-      if (item.price !== null) {
-        return total + item.price * item.qty;
-      }
-      return total;
-    }, 0).toFixed(2);
+    return parseFloat(
+      cartItems
+        .reduce((total, item) => {
+          if (item.price !== null) {
+            return total + item.price * item.qty;
+          }
+          return total;
+        }, 0)
+        .toFixed(2)
+    );
   };
 
   const handleIncreaseQty = (id: number) => {
