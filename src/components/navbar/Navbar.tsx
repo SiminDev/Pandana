@@ -3,6 +3,7 @@ import CartButton from "./CartButton";
 import UserStatus from "./UserStatus";
 import MobileMenu from "./MobileMenu";
 import logo from "../../../public/assets/logo-black.svg";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -10,7 +11,9 @@ function Navbar() {
       <div className="md:hidden">
         <MobileMenu />
       </div>
-      <img src={logo} className="w-24 lg:w-36" />
+      <Link to={"/"}>
+        <img src={logo} className="w-24 lg:w-36" />
+      </Link>
       <div className="hidden md:flex">
         <Navigation />
       </div>
