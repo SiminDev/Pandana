@@ -3,19 +3,19 @@ import { Product } from "../../types/server";
 import { Link } from "react-router-dom";
 
 
-function ProductItem({ title, image, price, rating, id }: Product) {
+function ProductItemHorizontal({ title, image, price, rating, id }: Product) {
   return (
-    <div className="w-46 md:w-58 lg:w-full flex-shrink-0 bg-white p-5 shadow-xl shadow-gray-100 rounded-2xl border border-slate-100">
+    <div className="grid grid-cols-3 items-center gap-5 bg-white p-5 shadow-xl shadow-gray-100 rounded-2xl border border-slate-100">
       <div className="rounded-2xl flex justify-center overflow-hidden">
         <Link to={`/product/${id}`}>
           <img
-            className="h-48 md:h-72 object-contain scale-85 hover:scale-100 transition duration-300"
+            className="h-32 object-contain scale-85 hover:scale-100 transition duration-300"
             src={image}
           />
         </Link>
       </div>
-      <div className="mt-3 flex flex-col gap-1.5">
-        <h3 className="text-sm font-medium text-gray-800 line-clamp-1">
+      <div className="col-span-2 mt-3 flex flex-col gap-1.5">
+        <h3 className="text-sm font-medium text-gray-800">
           {title}
         </h3>
         <div className="flex gap-1">
@@ -28,4 +28,4 @@ function ProductItem({ title, image, price, rating, id }: Product) {
   );
 }
 
-export default ProductItem;
+export default ProductItemHorizontal;
