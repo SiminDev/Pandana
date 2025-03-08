@@ -13,7 +13,6 @@ function Footer() {
           <span className="font-semibold">ABOUT US</span>
           <ul className="text-sm text-gray-500 flex md:flex-col gap-5 md:gap-3">
             <li>About us</li>
-            <li>Store location</li>
             <li>Contact</li>
             <li>Orders tracking</li>
           </ul>
@@ -23,14 +22,12 @@ function Footer() {
           <ul className="text-sm text-gray-500 flex md:flex-col gap-5 md:gap-3">
             <li>Returns</li>
             <li>Support Policy</li>
-            <li>Size guide</li>
             <li>FAQs</li>
           </ul>
         </div>
         <div className="md:col-span-1 flex flex-col gap-2 md:gap-5">
           <span className="font-semibold">FOLLOW US</span>
           <ul className="text-sm text-gray-500 flex md:flex-col gap-5 md:gap-3">
-            <li>Facebook</li>
             <li>Twitter</li>
             <li>Instagram</li>
             <li>Youtube</li>
