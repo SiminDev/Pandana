@@ -18,7 +18,7 @@ function Navbar() {
         <Navigation />
       </div>
       <div className="flex items-center gap-3.5 justify-end relative">
-        <div className="hidden md:flex">
+        <div className="flex">
           <UserStatus />
         </div>
         <CartButton />
