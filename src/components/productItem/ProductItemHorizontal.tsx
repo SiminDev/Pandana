@@ -1,6 +1,8 @@
 import { StarIcon } from "@heroicons/react/16/solid";
 import { Product } from "../../types/server";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 
 function ProductItemHorizontal({ title, image, price, rating, id }: Product) {
@@ -8,9 +10,10 @@ function ProductItemHorizontal({ title, image, price, rating, id }: Product) {
     <div className="grid grid-cols-3 items-center gap-5 bg-white p-5 shadow-xl shadow-gray-100 rounded-2xl border border-slate-100">
       <div className="rounded-2xl flex justify-center overflow-hidden">
         <Link to={`/product/${id}`}>
-          <img
+          <LazyLoadImage
             className="h-32 object-contain scale-85 hover:scale-100 transition duration-300"
             src={image}
+            alt={`Product image of ${title}`}
           />
         </Link>
       </div>

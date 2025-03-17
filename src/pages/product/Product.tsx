@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import { StarIcon } from "@heroicons/react/16/solid";
 import { useCartContext } from "../../context/CartContext";
 import IncreaseDecreaseButton from "../../components/IncreaseDecreaseButton";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 function Product() {
   const params = useParams<{ id: string }>();
@@ -25,9 +27,10 @@ function Product() {
     <div className="px-5 py-5 lg:px-15 lg:py-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-10">
         <div className="p-5 md:p-10 rounded-2xl bg-slate-100 flex justify-center align-middle lg:min-h-120 ">
-          <img
+          <LazyLoadImage
             className="w-full md:w-2/3 object-contain"
             src={product?.image}
+            alt={`Product image of ${product?.title}`}
           />
         </div>
         <div className="p-5 md:p-10 rounded-2xl bg-white flex flex-col justify-between">

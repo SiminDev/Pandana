@@ -5,6 +5,7 @@ import { useCartContext } from "../../context/CartContext";
 import { getProduct } from "../../services/api";
 import { Link } from "react-router-dom";
 import IncreaseDecreaseButton from "../IncreaseDecreaseButton";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 interface CartItem {
   id: number;
@@ -26,7 +27,11 @@ export default function CartItem({ id, qty }: CartItem) {
     <div className="grid grid-cols-2 lg:grid-cols-6 lg:justify-items-center items-center rounded-2xl px-10 py-5 lg:py-4 border-gray-300 bg-slate-50 relative">
       <Link to={`/product/${id}`}>
         <div className="w-16 md:w-20 h-24 bg-white rounded-lg p-2 flex items-center justify-center overflow-hidden">
-          <img className="w-full cursor-pointer" src={product?.image} />
+          <LazyLoadImage
+            className="w-full cursor-pointer"
+            src={product?.image}
+            alt={`Product image of ${product?.title}`}
+          />
         </div>
       </Link>
 

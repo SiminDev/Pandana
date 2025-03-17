@@ -1,16 +1,17 @@
 import { StarIcon } from "@heroicons/react/16/solid";
 import { Product } from "../../types/server";
 import { Link } from "react-router-dom";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function ProductItem({ title, image, price, rating, id }: Product) {
   return (
     <div className="w-46 md:w-58 lg:w-full flex-shrink-0 bg-white p-5 shadow-xl shadow-gray-100 rounded-2xl border border-slate-100">
       <div className="rounded-2xl flex justify-center overflow-hidden">
         <Link to={`/product/${id}`}>
-          <img
+          <LazyLoadImage
             className="h-48 md:h-72 object-contain scale-85 hover:scale-100 transition duration-300"
             src={image}
+            alt={`Product image of ${title}`}
           />
         </Link>
       </div>
