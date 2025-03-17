@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import slide1 from "../../public/assets/slide1.png";
 import slide2 from "../../public/assets/slide2.png";
 import slide3 from "../../public/assets/slide3.png";
@@ -13,20 +14,36 @@ function Slider() {
           dynamicBullets: true,
         }}
         modules={[Pagination, Autoplay]}
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 2500 }}
         speed={1300}
-        loop={false}
+        loop={true}
         rewind={true}
+        grabCursor={true}
         className="mySwiper rounded-2xl"
       >
         <SwiperSlide>
-          <img src={slide1} />
+          <LazyLoadImage
+            src={slide1}
+            alt="Slide 1"
+            effect="blur"
+            className="w-full h-auto object-cover"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slide2} />
+          <LazyLoadImage
+            src={slide2}
+            alt="Slide 1"
+            effect="blur"
+            className="w-full h-auto object-cover"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slide3} />
+          <LazyLoadImage
+            src={slide3}
+            alt="Slide 1"
+            effect="blur"
+            className="w-full h-auto object-cover"
+          />
         </SwiperSlide>
       </Swiper>
     </>
