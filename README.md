@@ -11,8 +11,8 @@ This is a **mini e-commerce project** built with **React** and **TypeScript** as
 - **Custom Hooks:** Used to optimize and modularize the code
 - **Local Storage:** Data persistence for cart items
 - **Product Data:** Fetched from **Fake Store API** using **Axios**
-**Routing**: Implemented using `react-router-dom`  
-- **Private Routes**: Protected routes for authenticated users only  
+- **Routing**: Implemented using `react-router-dom`
+- **Private Routes**: Protected routes for authenticated users only
 - **Styling:** Fully responsive design with **Tailwind CSS**
 
 ## ⚙️ Installation & Setup
