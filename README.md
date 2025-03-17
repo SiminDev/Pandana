@@ -2,7 +2,7 @@
 
 This is a **mini e-commerce project** built with **React** and **TypeScript** as a portfolio sample.
 
-## Features
+## ✨ Features
 
 - **Pages:** Home, Products, Product Details, Cart, Profile, and Login
 - **Authentication:** Users can log in
@@ -11,9 +11,11 @@ This is a **mini e-commerce project** built with **React** and **TypeScript** as
 - **Custom Hooks:** Used to optimize and modularize the code
 - **Local Storage:** Data persistence for cart items
 - **Product Data:** Fetched from **Fake Store API** using **Axios**
+**Routing**: Implemented using `react-router-dom`  
+- **Private Routes**: Protected routes for authenticated users only  
 - **Styling:** Fully responsive design with **Tailwind CSS**
 
-## Installation & Setup
+## ⚙️ Installation & Setup
 
 1. Clone the repository:
 
@@ -28,13 +30,13 @@ This is a **mini e-commerce project** built with **React** and **TypeScript** as
    npm install
    ```
 
-3.Start the development server:
+3. Start the development server:
 
-```
-npm run dev
-```
+   ```
+   npm run dev
+   ```
 
-## Screenshots
+## 🖼️ Screenshots
 
 Here are some screenshots of the project:
 
